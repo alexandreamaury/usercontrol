@@ -7,7 +7,7 @@ import { NavController } from 'ionic-angular';
   templateUrl: 'page2.html'
 })
 export class Page2 {
-  private usuario;
+  usuario;
   prilistaUsuarios = [];
 
   constructor(public navCtrl: NavController) {
