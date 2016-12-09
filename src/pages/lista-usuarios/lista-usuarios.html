@@ -1,0 +1,17 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>LISTA DE USUARIOS CADASTRADOS</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <ion-list>
+  <button ion-item *ngFor="let usuario of listaUsuarios" (click)="itemSelected(usuario)">
+    {{ usuario.nome }} {{ usuario.datanasc }} {{ usuario.cpf }}
+  </button>
+</ion-list>
+
+</ion-content>
