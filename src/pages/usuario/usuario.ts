@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Login } from '../pages/login/login';
 import { NavController , NavParams } from 'ionic-angular';
 import { Http } from '@angular/http';
 import 'rxjs/add/operator/map';
@@ -18,13 +19,13 @@ public usuario;
 inserir(){
   console.log(this.usuario);
   this.http.post('http://localhost:8080/ServicoWeb/resource/WebService/inserir', this.usuario).map(res => res.json()).subscribe(data => {
-      console.log('Inserindo dados normalmente...');
-      this.usuario={};
-      this.encerrar();
+    console.log('Inserindo dados normalmente...');
+        this.usuario={};
+        this.fechar();
   });
 }
 
-  encerrar(){
+fechar(){
     this.navCtrl.pop();
   }
 

@@ -1,16 +1,17 @@
 <ion-header>
-
   <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
     <ion-title>LISTA DE USUARIOS CADASTRADOS</ion-title>
   </ion-navbar>
-
 </ion-header>
 
 
 <ion-content padding>
   <ion-list>
-  <button ion-item *ngFor="let usuario of listaUsuarios" (click)="itemSelected(usuario)">
-    {{ usuario.nome }} {{ usuario.datanasc }} {{ usuario.cpf }}
+  <button ion-item *ngFor="let usuario of listaUsuarios" (click)="itemSelected(exibirUsuario())">
+    {{usuario.nome}}-{{usuario.datanasc}}-{{usuario.cpf}}
   </button>
 </ion-list>
 

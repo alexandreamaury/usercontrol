@@ -14,17 +14,22 @@ import 'rxjs/add/operator/map';
   templateUrl: 'lista-usuarios.html' //relativo a pagina html que este arquivo .ts manipula
 })
 export class ListaUsuarios {
-public listaUsuarios=[];
+private listaUsuarios;
 
   constructor(public navCtrl: NavController, public params: NavParams, public http:Http) {
-
+    this.listaUsuarios = [];
+    this.listarUsuarios();
   }
 
+  listarUsuarios(){
+      this.http.get('http://localhost:8080/ServicoWeb/resource/WebService/listar').map(res => res.json()).subscribe(data => {
+        this.listaUsuarios = data;
+      });
+    }
+
+
   ionViewDidLoad() {
-    this.http.post('http://localhost:8080/ServicoWeb/resource/WebService/listar', this.listaUsuarios).map(res => res.json()).subscribe(data => {
-        console.log('exibindo dados normalmente...');
-    });
-    console.log('Pagina sendo preenchida com o conteudo do arraylist');
+
   }
 
 }
